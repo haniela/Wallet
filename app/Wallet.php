@@ -10,7 +10,7 @@ class Wallet extends Model
         'tags','type','amount','file','date','company_id','banque_id',
     ];
 
-   /*  public function banque()
+    public function banque()
     {
         return $this->belongsTo(\App\Banque::class, 'banque_id', 'id');
     }
@@ -18,5 +18,5 @@ class Wallet extends Model
     public function company()
     {
         return $this->belongsTo(\App\Company::class, 'company_id', 'id');
-    } */
+    }
 }

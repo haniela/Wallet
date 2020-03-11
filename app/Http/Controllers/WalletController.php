@@ -25,7 +25,8 @@ class WalletController extends Controller
      */
     public function create()
     {
-        return view('wallet.create');
+        $wallets=Wallet::all();
+        return view('wallet.create', compact('wallets'));
     }
 
     /**
@@ -36,7 +37,17 @@ class WalletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $wallet= new Wallet();
+        $wallet->date = request('date');
+        $wallet->tags = request('tags');
+        $wallet->type = request('type');
+        $wallet->amount = request('amount');
+        $wallet->file = request('file');
+        $wallet->company_id = request('company');
+        $wallet->banque_id = request('banque');
+        //dd(request()->all());
+        $wallet->save();
+        return redirect('wallet');
     }
 
     /**

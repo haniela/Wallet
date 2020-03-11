@@ -20,13 +20,19 @@
                 <tr>
                     <td>{{ $wallet->date }}</td>
                     <td>{{ $wallet->tags }}</td>
-                    <td>{{ $wallet->banque}}</td>
-                    <td>{{ $wallet->files }}</td>
+                    <td>{{ $wallet->banque->bank_name }}</td>
+                    <td>{{ $wallet->file }}</td>
                     <td>{{ $wallet->amount }}</td>
                     <td>{{ $wallet->type }}</td>
-                    <td>{{ $wallet->company }}</td>
+                    <td>{{ $wallet->company->company_name }}</td>
                 </tr>
             @endforeach
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Total {{ count($wallets) }}</td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -20,18 +20,18 @@ class CreateWalletsTable extends Migration
             $table->double('amount');
             $table->string('file')->nullable();
             $table->date('date');
-            $table->string('banque');
-            $table->string('company');
-/*             $table->integer('banque_id')->unsigned();
+            /* $table->string('banque');
+            $table->string('company'); */
+            $table->bigInteger('banque_id')->unsigned();
             $table->foreign('banque_id')
                     ->references('id')
                     ->on('banques')
                     ->onDelete('cascade');
-            $table->integer('company_id')->unsigned();
+            $table->bigInteger('company_id')->unsigned();
             $table->foreign('company_id')
                     ->references('id')
                     ->on('companies')
-                    ->onDelete('cascade');*/
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -43,9 +43,9 @@ class CreateWalletsTable extends Migration
      */
     public function down()
     {
-       /*  Schema::table('wallets', function(Blueprint $table) {
+        Schema::table('wallets', function(Blueprint $table) {
             $table->dropForeign('wallets_banque_id_foreign','wallets_company_id_foreign');
-        }); */
+        });
         Schema::dropIfExists('wallets');
     }
 }

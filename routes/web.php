@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('wallet', 'WalletController@index')->name('wallet');
-Route::get('walletFrom', 'WalletController@create')->name('walletFrom');
+Route::resource('wallet', 'WalletController');
+Route::get('wallet-search', function() {
+    return view('wallet.index');
+});
+/* Route::get('wallet', 'WalletController@index')->name('wallet');
+Route::get('walletFrom', 'WalletController@create')->name('walletFrom'); */

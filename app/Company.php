@@ -10,8 +10,8 @@ class Company extends Model
         'company_name',
     ];
 
-   /*  public function wallet()
+    public function wallet()
     {
         return $this->hasMany(\App\Wallet::class);
-    } */
+    }
 }

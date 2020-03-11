@@ -12,7 +12,7 @@ class BanqueTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Banque::class, 50)->create();
+        factory(App\Banque::class, 4)->create();
        /*  $param = Banque::create([
             'bank_name' => 'BCEAO'
         ]); */
