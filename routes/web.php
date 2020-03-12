@@ -18,8 +18,6 @@ Route::get('/', function () {
 });
 
 Route::resource('wallet', 'WalletController');
-Route::get('wallet-search', function() {
-    return view('wallet.index');
-});
+
 /* Route::get('wallet', 'WalletController@index')->name('wallet');
 Route::get('walletFrom', 'WalletController@create')->name('walletFrom'); */

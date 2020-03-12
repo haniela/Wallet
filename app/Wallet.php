@@ -10,6 +10,13 @@ class Wallet extends Model
         'tags','type','amount','file','date','company_id','banque_id',
     ];
 
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::where('tags', 'like', '%'.$query.'%')
+                ->orWhere('type', 'like', '%'.$query.'%');
+    }
+
     public function banque()
     {
         return $this->belongsTo(\App\Banque::class, 'banque_id', 'id');

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <title>App Name - @yield('title')</title>
         <script src="https://unpkg.com/feather-icons"></script>
+        @livewireAssets
     </head>
 
     <style>
@@ -118,11 +119,12 @@
     <body>
         @section('sidebar')
             <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-                <a class="navbar-brand col-md-2 mr-0" href="wallet">Dcolsay</a>
+                <a class="navbar-brand col-md-2 mr-0" href="{{route('wallet.index')}}">Dcolsay</a>
                 <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <input class="form-control form-control-dark w-100" type="search" placeholder="Search..." aria-label="Search">
+
+                <input class="form-control form-control-dark w-100" type="text" placeholder="Search..." aria-label="Search">
                 <ul class="navbar-nav px-3">
                     <li class="nav-item text-nowrap">
                     <a class="nav-link" href="#">Sign out</a>
@@ -225,13 +227,17 @@
                 </div>
 
                 {{-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> --}}
-                 @yield('content')
+
+                @yield('content')
+
                 </main>
              </div>
         </div>
 
         </div>
-        <script>
+
+        @livewireScripts
+       {{--  <script>
             document.querySelector('input').addEventListener('input', function (e){
                 fetch('wallet-search'+e.target.value)
                 .then(response => response.text())
@@ -239,7 +245,7 @@
                     document.querySelector('ul').innerHTML = html
                 })
             })
-        </script>
+        </script> --}}
          <script>
             feather.replace()
          </script>
