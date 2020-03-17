@@ -17,7 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('wallet', 'WalletController');
+Route::resource('wallet', 'WalletController')->middleware('auth');
 
 /* Route::get('wallet', 'WalletController@index')->name('wallet');
 Route::get('walletFrom', 'WalletController@create')->name('walletFrom'); */
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
